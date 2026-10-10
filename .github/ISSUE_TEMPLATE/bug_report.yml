@@ -1,0 +1,55 @@
+name: Ошибка приложения
+description: Сообщить о воспроизводимой проблеме без секретов
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Не публикуйте ключи, пароли, секретный путь панели, ссылки подписок и клиентские данные. Этот шаблон не предназначен для раскрытия уязвимостей."
+  - type: input
+    id: app_version
+    attributes:
+      label: Версия приложения
+      placeholder: Версия релиза или SHA коммита
+    validations:
+      required: true
+  - type: input
+    id: mikan_version
+    attributes:
+      label: Версия Mikan
+      placeholder: Номер установленной версии или неизвестно
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Версия Windows
+      placeholder: Windows 10/11, архитектура
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Шаги воспроизведения
+      description: Что сделали и где возникла проблема?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ожидаемый результат
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Фактический результат
+      description: Текст ошибки или обезличенный скриншот
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Проверка перед отправкой
+      options:
+        - label: Я удалил секреты и клиентские данные из текста и вложений
+          required: true

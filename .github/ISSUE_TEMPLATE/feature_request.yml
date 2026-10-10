@@ -1,0 +1,26 @@
+name: Предложение функции
+description: Предложить улучшение интерфейса или интеграции
+title: "[Feature]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Опишите задачу без API-ключей, реальных адресов панели и клиентских данных."
+  - type: textarea
+    id: problem
+    attributes:
+      label: Какую задачу нужно решить?
+      description: Что сейчас неудобно или отсутствует?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Предлагаемое решение
+      description: Как должен выглядеть результат?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Дополнительный контекст
+      description: Если это функция Mikan, укажите версию панели и название функции. Секреты не прикладывайте.
