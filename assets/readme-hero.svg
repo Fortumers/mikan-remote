@@ -1,16 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
-<title id="title">PumbaNET Admin — Desktop companion for Mikan</title>
-<desc id="desc">Фирменный баннер: тёмный фон, оранжевый знак P, название продукта. Windows x64, Mikan API, Preview.</desc>
-<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101722"/><stop offset="1" stop-color="#090e15"/></linearGradient><linearGradient id="orange" x2="1" y2="1"><stop stop-color="#ffb36a"/><stop offset="1" stop-color="#f17a23"/></linearGradient><radialGradient id="glow"><stop stop-color="#fb923c" stop-opacity=".2"/><stop offset="1" stop-color="#fb923c" stop-opacity="0"/></radialGradient><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".025"/></pattern></defs>
-<rect x="1" y="1" width="1198" height="358" rx="24" fill="url(#bg)" stroke="#293442"/>
-<rect x="2" y="2" width="1196" height="356" rx="23" fill="url(#grid)"/>
-<ellipse cx="1070" cy="175" rx="330" ry="250" fill="url(#glow)"/>
-<rect x="62" y="56" width="58" height="58" rx="17" fill="url(#orange)"/>
-<text x="91" y="96" text-anchor="middle" fill="#16110e" font-family="Segoe UI,Arial,sans-serif" font-size="34" font-weight="700">P</text>
-<text x="143" y="80" fill="#f8a45a" font-family="Segoe UI,Arial,sans-serif" font-size="13" letter-spacing="3">DESKTOP COMPANION</text>
-<text x="143" y="104" fill="#8594aa" font-family="Segoe UI,Arial,sans-serif" font-size="13">Built for Mikan workflows</text>
-<text x="62" y="192" fill="#f0f4fa" font-family="Segoe UI,Arial,sans-serif" font-size="62" font-weight="700" letter-spacing="-2">PumbaNET <tspan fill="#fb923c">Admin</tspan></text>
-<text x="65" y="231" fill="#a5b2c6" font-family="Segoe UI,Arial,sans-serif" font-size="19">Monitor your service. Manage your users.</text>
-<g font-family="Segoe UI,Arial,sans-serif" font-size="13"><rect x="65" y="275" width="124" height="34" rx="17" fill="#19222e" stroke="#334052"/><text x="127" y="297" text-anchor="middle" fill="#c9d3e1">Windows x64</text><rect x="201" y="275" width="113" height="34" rx="17" fill="#19222e" stroke="#334052"/><text x="257" y="297" text-anchor="middle" fill="#c9d3e1">Mikan API</text><rect x="326" y="275" width="99" height="34" rx="17" fill="#fb923c13" stroke="#714626"/><text x="375" y="297" text-anchor="middle" fill="#ffb577">Preview</text></g>
-<g transform="translate(900 74)" fill="none" stroke="#fb923c"><rect width="222" height="212" rx="20" stroke-opacity=".18"/><rect x="20" y="20" width="182" height="172" rx="14" stroke-opacity=".12"/><path d="M45 71h132M45 106h132M45 141h132" stroke="#475164" stroke-opacity=".6"/><circle cx="58" cy="71" r="5" fill="#fb923c"/><circle cx="108" cy="106" r="5" fill="#fb923c"/><circle cx="151" cy="141" r="5" fill="#fb923c"/><path d="M58 71l50 35 43 35" stroke-width="2" stroke-opacity=".5"/></g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="520" viewBox="0 0 1440 520" role="img" aria-labelledby="title desc">
+<title id="title">PumbaNET Admin</title>
+<desc id="desc">Строгий графитовый типографический баннер. Десктопный интерфейс для Mikan. Windows x64, Preview. Не скриншот приложения.</desc>
+<defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" fill="none" stroke="#8e9ba9" stroke-opacity=".045"/></pattern></defs>
+<rect width="1440" height="520" fill="#101216"/>
+<rect width="1440" height="520" fill="url(#grid)"/>
+<path d="M64 64h1312M64 456h1312" stroke="#30343c"/>
+<path d="M64 64h88" stroke="#f08b42" stroke-width="3"/>
+<g font-family="Consolas,monospace" font-size="14" letter-spacing="2" fill="#939aa5"><text x="64" y="106">P / DESKTOP SOFTWARE</text><text x="1376" y="106" text-anchor="end">WINDOWS X64 — PREVIEW</text></g>
+<g font-family="Segoe UI,Arial,sans-serif"><text x="60" y="249" font-size="106" font-weight="600" letter-spacing="-5" fill="#f1f2f4">PumbaNET<tspan fill="#f08b42">.</tspan></text><text x="65" y="332" font-size="64" font-weight="300" letter-spacing="-2" fill="#a6aab2">Admin</text><text x="65" y="399" font-size="23" fill="#818894">Десктопный интерфейс для Mikan</text></g>
+<g fill="none" stroke="#414650" stroke-width="1"><path d="M1100 176h180v180h-180zM1132 208h116v116h-116zM1164 240h52v52h-52z"/><path d="M1190 144v244M1068 266h244" stroke="#f08b42" stroke-opacity=".5"/><path d="M1100 176l64 64M1280 176l-64 64M1100 356l64-64M1280 356l-64-64"/></g>
+<rect x="1186" y="262" width="8" height="8" fill="#f08b42"/>
+<g font-family="Consolas,monospace" font-size="12" letter-spacing="1.5" fill="#737b88"><text x="64" y="487">MONITORING / USERS / LIMITS</text><text x="1376" y="487" text-anchor="end">TAURI · REACT · RUST</text></g>
 </svg>
