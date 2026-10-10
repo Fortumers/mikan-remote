@@ -1,0 +1,15 @@
+type ObjectValue = Record<string, unknown>;
+const record=(v:unknown):ObjectValue|null=>typeof v==='object'&&v!==null&&!Array.isArray(v)?v as ObjectValue:null;
+const number=(v:unknown):number|null=>typeof v==='number'&&Number.isFinite(v)&&v>=0?v:null;
+const count=(v:unknown)=>{const n=number(v);return n!==null&&Number.isSafeInteger(n)?n.toLocaleString('ru-RU'):'Нет данных'};
+const bytes=(v:unknown)=>{const n=number(v);return n===null?'Нет данных':`${(n/1e9).toLocaleString('ru-RU',{maximumFractionDigits:2})} ГБ`};
+export default function LiveOverview({value,stale}:{value:unknown;stale:boolean}){
+ const data=record(value);
+ if(!data)return <div className="error" role="alert">Неожиданный формат сводки. Проверьте версию API.</div>;
+ const today=number(data.traffic_today),yesterday=number(data.traffic_yesterday);
+ const change=today!==null&&yesterday!==null&&yesterday>0?(today-yesterday)/yesterday*100:null;
+ const generated=typeof data.generated_at==='string'?new Date(data.generated_at):null;
+ const rows=Array.isArray(data.top_month)?data.top_month.map(record).filter((r):r is ObjectValue=>r!==null):null;
+ const cards=[['Всего пользователей',count(data.users_total)],['Активные пользователи',count(data.users_active)],['Истекают за 7 дней',count(data.expiring_7d)],['Трафик сегодня',bytes(data.traffic_today)],['Трафик вчера',bytes(data.traffic_yesterday)],['Онлайн · поле API',count(data.online)],['Назначенные слоты · API',count(data.slots_assigned)],['Свободные слоты · API',count(data.slots_free)]];
+ return <section style={{marginTop:24}}><div className="row"><h2>Реальная сводка Mikan</h2><span className={stale?'badge bad':'badge good'}>{stale?'Обновление не удалось':'Последний успешный ответ'}</span></div>{stale&&<p role="alert" className="error">Показан предыдущий ответ. Данные могут быть устаревшими.</p>}<p className="muted">Сформировано панелью: {generated&&!Number.isNaN(generated.getTime())?generated.toLocaleString('ru-RU'):'Нет данных'}. Время отображается в часовом поясе ПК.</p><div className="stats">{cards.map(([label,v])=><article className="panel stat" key={label}><span className="muted">{label}</span><strong>{v}</strong></article>)}</div><p className="muted">Сегодня относительно вчера: {change===null?'нет базы для сравнения':`${change>0?'+':''}${change.toLocaleString('ru-RU',{maximumFractionDigits:1})}%`}. Это сравнение неполного текущего дня с предыдущим, не прогноз. 1 ГБ = 1 000 000 000 байт.</p><article className="panel table-wrap"><h2>Месячное потребление · top_month</h2>{rows===null?<p className="muted">Нет данных</p>:rows.length===0?<p className="muted">Список пуст</p>:<table><thead><tr><th>ID</th><th>Пользователь</th><th>Трафик</th></tr></thead><tbody>{rows.map((r,i)=><tr key={i}><td>{count(r.id)}</td><td>{typeof r.name==='string'?r.name:'Нет данных'}</td><td>{bytes(r.bytes)}</td></tr>)}</tbody></table>}</article><p className="muted">Смысл online и slots пока не уточнён: это не количество серверов. Выручка и недельный график здесь не выдумываются.</p></section>;
+}
