@@ -1,0 +1,11 @@
+[package]
+name = "pumbanet-admin"
+version = "0.1.0"
+description = "PumbaNET Admin desktop dashboard"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
