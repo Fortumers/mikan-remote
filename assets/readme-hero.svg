@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+<title id="title">PumbaNET Admin — Desktop companion for Mikan</title>
+<desc id="desc">Фирменный баннер: тёмный фон, оранжевый знак P, название продукта. Windows x64, Mikan API, Preview.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101722"/><stop offset="1" stop-color="#090e15"/></linearGradient><linearGradient id="orange" x2="1" y2="1"><stop stop-color="#ffb36a"/><stop offset="1" stop-color="#f17a23"/></linearGradient><radialGradient id="glow"><stop stop-color="#fb923c" stop-opacity=".2"/><stop offset="1" stop-color="#fb923c" stop-opacity="0"/></radialGradient><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#fff" stroke-opacity=".025"/></pattern></defs>
+<rect x="1" y="1" width="1198" height="358" rx="24" fill="url(#bg)" stroke="#293442"/>
+<rect x="2" y="2" width="1196" height="356" rx="23" fill="url(#grid)"/>
+<ellipse cx="1070" cy="175" rx="330" ry="250" fill="url(#glow)"/>
+<rect x="62" y="56" width="58" height="58" rx="17" fill="url(#orange)"/>
+<text x="91" y="96" text-anchor="middle" fill="#16110e" font-family="Segoe UI,Arial,sans-serif" font-size="34" font-weight="700">P</text>
+<text x="143" y="80" fill="#f8a45a" font-family="Segoe UI,Arial,sans-serif" font-size="13" letter-spacing="3">DESKTOP COMPANION</text>
+<text x="143" y="104" fill="#8594aa" font-family="Segoe UI,Arial,sans-serif" font-size="13">Built for Mikan workflows</text>
+<text x="62" y="192" fill="#f0f4fa" font-family="Segoe UI,Arial,sans-serif" font-size="62" font-weight="700" letter-spacing="-2">PumbaNET <tspan fill="#fb923c">Admin</tspan></text>
+<text x="65" y="231" fill="#a5b2c6" font-family="Segoe UI,Arial,sans-serif" font-size="19">Monitor your service. Manage your users.</text>
+<g font-family="Segoe UI,Arial,sans-serif" font-size="13"><rect x="65" y="275" width="124" height="34" rx="17" fill="#19222e" stroke="#334052"/><text x="127" y="297" text-anchor="middle" fill="#c9d3e1">Windows x64</text><rect x="201" y="275" width="113" height="34" rx="17" fill="#19222e" stroke="#334052"/><text x="257" y="297" text-anchor="middle" fill="#c9d3e1">Mikan API</text><rect x="326" y="275" width="99" height="34" rx="17" fill="#fb923c13" stroke="#714626"/><text x="375" y="297" text-anchor="middle" fill="#ffb577">Preview</text></g>
+<g transform="translate(900 74)" fill="none" stroke="#fb923c"><rect width="222" height="212" rx="20" stroke-opacity=".18"/><rect x="20" y="20" width="182" height="172" rx="14" stroke-opacity=".12"/><path d="M45 71h132M45 106h132M45 141h132" stroke="#475164" stroke-opacity=".6"/><circle cx="58" cy="71" r="5" fill="#fb923c"/><circle cx="108" cy="106" r="5" fill="#fb923c"/><circle cx="151" cy="141" r="5" fill="#fb923c"/><path d="M58 71l50 35 43 35" stroke-width="2" stroke-opacity=".5"/></g>
+</svg>
