@@ -1,0 +1,35 @@
+.user-workspace{min-width:0}
+.user-tabs{display:inline-flex;gap:4px;padding:5px;margin:0 0 20px;border:1px solid #293544;border-radius:12px;background:#10161f;max-width:100%;flex-wrap:wrap}
+.user-tabs>button{margin:0;border:1px solid transparent;background:transparent;color:#99a8bd;border-radius:8px;min-height:40px;padding:10px 18px;font-size:13px}
+.user-tabs>button[aria-pressed=true]{background:#26303d;color:#fff;border-color:#3b485b;box-shadow:0 2px 8px #0003}
+.user-tabs>button:hover{background:#202935;color:#fff}
+.user-content>.panel{padding:26px;margin-bottom:20px;min-width:0}
+.user-content>.panel>.row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.user-content>.panel>.row h2{margin:0;font-size:17px}
+.user-content>.panel>.muted{font-size:12px;line-height:1.7;max-width:780px;margin:10px 0;color:#9daabd}
+.user-content>.panel>form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 24px;margin-top:24px;padding-top:22px;border-top:1px solid #293544;align-items:start}
+.user-content>.panel>form>label{display:flex;flex-direction:column;align-items:stretch;gap:10px;min-width:0;font-size:13px;font-weight:500;color:#cdd6e3;margin:0;line-height:1.5}
+.user-workspace form input,.user-workspace form select,.user-workspace form textarea{display:block;box-sizing:border-box;width:100%;max-width:none;margin:0;padding:12px 14px;min-height:46px;border:1px solid #354152;border-radius:10px;background:#0e151e;color:#eef2f7;font:inherit;font-size:14px;line-height:1.5;box-shadow:none;outline:none;transition:border-color .15s,box-shadow .15s;color-scheme:dark}
+.user-workspace form select{padding-right:36px;cursor:pointer}
+.user-workspace form select option{background:#141c27;color:#eef2f7}
+.user-workspace form textarea{min-height:110px;resize:vertical}
+.user-workspace form input:focus-visible,.user-workspace form select:focus-visible,.user-workspace form textarea:focus-visible{border-color:#fb923c;box-shadow:0 0 0 3px #fb923c1a}
+.user-workspace button:focus-visible{outline:2px solid #fb923c;outline-offset:3px}
+.user-workspace form input:disabled,.user-workspace form select:disabled,.user-workspace form textarea:disabled{opacity:.65;cursor:default}
+.user-create>.panel>form>label:nth-of-type(3){grid-column:1/-1}
+.user-content>.panel>form>button[type=submit]{grid-column:1/-1;justify-self:end;min-height:44px;margin:0;padding:11px 22px;border:1px solid #fb923c;border-radius:10px;background:#fb923c;color:#17100a;font-weight:600;box-shadow:0 4px 14px #fb923c18}
+.user-content>.panel>form>button[type=submit]:hover:not(:disabled){background:#ffac62;border-color:#ffac62}
+.user-content>.panel>form>button:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.user-content>.panel>form>p{grid-column:1/-1;margin:0;font-size:13px;color:#9daabd}
+.user-workspace label>small{font-size:11px;color:#91a0b4;font-weight:400;line-height:1.6}
+.user-content>.panel>.error{margin:16px 0;padding:14px 16px;border:1px solid #743745;border-radius:10px;background:#351d2580;color:#f8bcc7;line-height:1.6;font-size:13px}
+.user-content>.panel>p[role=status]{padding:12px 16px;margin:16px 0;border:1px solid #275c47;background:#153a2b80;color:#a8e8c4;border-radius:10px;line-height:1.6;font-size:13px}
+.user-content>.panel>section{padding:22px;margin-top:24px!important;border:1px solid #655039;border-radius:12px;background:#fb923c08}
+.user-content>.panel>section h3{margin:0 0 16px;font-size:16px;color:#f4dfca}
+.user-content>.panel>section p,.user-content>.panel>section li{font-size:13px;line-height:1.7;overflow-wrap:anywhere}
+.user-content>.panel>section button{margin:8px 10px 0 0;min-height:42px;border-radius:9px}
+.user-content>.panel>section button:first-of-type{background:#fb923c;border-color:#fb923c;color:#17100a;font-weight:600}
+.user-content>.panel>section button:disabled{opacity:.5;cursor:not-allowed}
+.user-edit>.panel>form:first-of-type{grid-template-columns:minmax(180px,340px) auto;align-items:end}
+.user-edit>.panel>form:first-of-type>button[type=submit]{grid-column:auto;justify-self:start}
+@media(max-width:760px){.user-content>.panel{padding:20px}.user-content>.panel>form,.user-edit>.panel>form:first-of-type{grid-template-columns:minmax(0,1fr);gap:18px}.user-content>.panel>form>button[type=submit],.user-edit>.panel>form:first-of-type>button[type=submit]{grid-column:1;justify-self:stretch;width:100%}.user-tabs{display:flex}.user-tabs>button{flex:1;padding:10px 12px}.user-content>.panel>section{padding:18px}}
