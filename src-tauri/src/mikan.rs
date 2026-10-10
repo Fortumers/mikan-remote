@@ -57,16 +57,30 @@ pub async fn get_traffic(state: State<'_, ConnectionState>) -> Result<Value, Str
     let connection = current(&state)?;
     fetch(&connection, "api/v1/stats/traffic").await
 }
+fn user_endpoint(limit: Option<u32>, offset: Option<u32>, query: Option<String>, user_state: Option<String>) -> Result<String, String> {
+    let limit = limit.unwrap_or(100);
+    if !(1..=500).contains(&limit) { return Err("Размер страницы должен быть от 1 до 500".into()); }
+    let query = query.unwrap_or_default();
+    if query.chars().count() > 100 { return Err("Поиск не длиннее 100 символов".into()); }
+    let user_state = user_state.unwrap_or_else(|| "all".into());
+    if !["all", "active", "expiring", "limited", "expired", "disabled", "attention"].contains(&user_state.as_str()) { return Err("Неизвестный фильтр пользователей".into()); }
+    let mut url = Url::parse("https://placeholder.invalid/api/v1/users").map_err(|_| "Ошибка параметров".to_string())?;
+    url.query_pairs_mut().append_pair("limit", &limit.to_string()).append_pair("offset", &offset.unwrap_or(0).to_string()).append_pair("q", &query).append_pair("state", &user_state);
+    Ok(format!("api/v1/users?{}", url.query().unwrap_or_default()))
+}
 #[tauri::command]
-pub async fn get_collection(kind: String, state: State<'_, ConnectionState>) -> Result<Value, String> {
+pub async fn get_collection(kind: String, limit: Option<u32>, offset: Option<u32>, query: Option<String>, user_state: Option<String>, state: State<'_, ConnectionState>) -> Result<Value, String> {
+    let has_parameters = limit.is_some() || offset.is_some() || query.is_some() || user_state.is_some();
     let endpoint = match kind.as_str() {
-        "users" => "api/v1/users",
-        "nodes" => "api/v1/nodes",
-        "payments" => "api/v1/payments",
+        "users" if has_parameters => user_endpoint(limit, offset, query, user_state)?,
+        "users" => "api/v1/users".into(),
+        "nodes" | "payments" if has_parameters => return Err("Параметры страниц реализованы только для пользователей".into()),
+        "nodes" => "api/v1/nodes".into(),
+        "payments" => "api/v1/payments".into(),
         _ => return Err("Неизвестный раздел".into()),
     };
     let connection = current(&state)?;
-    fetch(&connection, endpoint).await
+    fetch(&connection, &endpoint).await
 }
 #[cfg(test)]
 mod tests {
@@ -77,5 +91,18 @@ mod tests {
         assert!(prepare("https://user:pass@example.com/admin", "test").is_err());
         assert!(prepare("https://example.com/admin?token=x", "test").is_err());
         assert!(prepare("https://example.com/admin", "").is_err());
+    }
+    #[test]
+    fn validates_and_encodes_user_parameters() {
+        assert!(user_endpoint(Some(0), None, None, None).is_err());
+        assert!(user_endpoint(Some(501), None, None, None).is_err());
+        assert!(user_endpoint(None, None, None, Some("unknown".into())).is_err());
+        assert!(user_endpoint(None, None, Some("x".repeat(101)), None).is_err());
+        let path = user_endpoint(Some(25), Some(50), Some("тест & state=disabled".into()), Some("active".into())).unwrap();
+        let url = Url::parse(&format!("https://example.com/{path}")).unwrap();
+        let pairs: Vec<_> = url.query_pairs().collect();
+        assert_eq!(pairs.len(), 4);
+        assert!(pairs.iter().any(|(k,v)| k == "q" && v == "тест & state=disabled"));
+        assert!(pairs.iter().any(|(k,v)| k == "state" && v == "active"));
     }
 }
