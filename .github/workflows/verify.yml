@@ -1,0 +1,70 @@
+name: Verify Windows
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'src-tauri/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'index.html'
+      - 'app-icon.svg'
+      - 'tsconfig.json'
+      - 'vite.config.ts'
+      - '.github/workflows/verify.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'src-tauri/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'index.html'
+      - 'app-icon.svg'
+      - 'tsconfig.json'
+      - 'vite.config.ts'
+      - '.github/workflows/verify.yml'
+permissions:
+  contents: read
+concurrency:
+  group: verify-windows-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 40
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/*'
+      - name: Install frontend dependencies
+        run: |
+          if (Test-Path package-lock.json) { npm.cmd ci } else { npm.cmd install }
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Build frontend and check TypeScript
+        run: npm.cmd run build
+      - name: Generate application icons
+        run: npm.cmd run tauri -- icon app-icon.svg
+      - name: Select stable Rust
+        run: rustup default stable
+      - name: Rust unit tests
+        run: cargo test --manifest-path .\src-tauri\Cargo.toml
+      - name: Build release executable without installer
+        run: npm.cmd run tauri -- build --no-bundle
+      - name: Verify executable exists
+        run: |
+          $file = Get-Item .\src-tauri\target\release\mikan-remote.exe -ErrorAction Stop
+          if ($file.Length -le 0) { throw 'Release executable is empty' }
+      - name: Upload test build
+        uses: actions/upload-artifact@v4
+        with:
+          name: mikan-remote-windows-x64-${{ github.sha }}
+          path: src-tauri/target/release/mikan-remote.exe
+          if-no-files-found: error
+          retention-days: 7
