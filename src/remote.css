@@ -1,1 +1,65 @@
-.remote-shell{min-height:100vh}.remote-shell>aside{height:100vh}.remote-shell .brand small{letter-spacing:3px}.remote-shell .brand .logo{font-size:22px}@media(max-width:700px){.remote-shell>aside{height:auto}}
+.remote-shell{min-height:100vh;background:#0c1016;--remote-accent:#f79b51;--remote-line:#2a3442;--remote-muted:#a6b3c6}
+.remote-shell>aside{height:100vh;width:232px;padding:30px 18px;background:#10151d;border-right:1px solid #26303e}
+.remote-shell .brand{margin:0 8px 36px;gap:13px;font-size:21px;letter-spacing:.5px}
+.remote-shell .brand small{letter-spacing:3px;font-size:10px;margin-top:4px;color:#91a0b5}
+.remote-shell .brand .logo{width:44px;height:44px;font-size:23px;background:#f79b51;border-radius:12px;box-shadow:none;color:#17120e}
+.remote-shell nav{gap:7px}
+.remote-shell .nav{min-height:46px;border-radius:10px;padding:12px 14px;color:#a4b1c4}
+.remote-shell .nav.active{background:#f79b5112;color:#ffb879;border-color:#f79b5125;box-shadow:inset 3px 0 0 #f79b51}
+.remote-shell .nav:hover:not(:disabled){background:#ffffff06}
+.remote-shell .sidebar-note{font-size:11px;line-height:1.8;color:#8b9bb0;padding-top:18px}
+.remote-shell>main{padding:32px 36px;max-width:1640px}
+.remote-shell header{margin-bottom:26px;gap:20px}
+.remote-shell h1{font-size:30px;font-weight:650;letter-spacing:-.7px;margin:6px 0}
+.remote-shell h2{font-size:17px;font-weight:600;line-height:1.4}
+.remote-shell h3{font-size:15px;line-height:1.5}
+.remote-shell .panel{background:#151c26;border:1px solid #293442;border-radius:16px;box-shadow:0 8px 24px #00000012;padding:24px}
+.remote-shell .muted{color:var(--remote-muted);line-height:1.7}
+.remote-shell p{line-height:1.65}
+.remote-shell button{min-height:40px;border-radius:9px;padding:10px 15px;font-size:13px;line-height:1.4;background:#1b2634;border-color:#354255;box-shadow:none;transition:background .15s,border-color .15s}
+.remote-shell button:hover:not(:disabled){background:#273447;border-color:#56667d}
+.remote-shell button:disabled{opacity:.45;cursor:not-allowed}
+.remote-shell button:focus-visible,.remote-shell input:focus-visible,.remote-shell select:focus-visible,.remote-shell textarea:focus-visible,.remote-shell summary:focus-visible{outline:2px solid #f79b51;outline-offset:3px}
+.remote-shell input,.remote-shell select,.remote-shell textarea{box-sizing:border-box;font-family:inherit;font-size:14px;min-height:46px;background:#0f151e;color:#edf2f8;border:1px solid #374456;border-radius:10px;padding:12px 14px;color-scheme:dark}
+.remote-shell input::placeholder,.remote-shell textarea::placeholder{color:#8191a8}
+.remote-shell select option{background:#131c28;color:#edf2f8}
+.remote-shell .user-tabs{display:inline-flex;gap:4px;padding:5px;border:1px solid #293544;border-radius:12px;background:#0e141d;margin-bottom:20px}
+.remote-shell .user-tabs>button{background:transparent;border-color:transparent;color:#a0aec2;min-height:38px;padding:9px 16px}
+.remote-shell .user-tabs>button[aria-pressed=true]{background:#253244;color:#f4f7fb;border-color:#3b4a60}
+.remote-shell .user-content>.panel{margin-bottom:22px}
+.remote-shell .user-content>.panel>.row{gap:16px;margin-bottom:12px;align-items:center}
+.remote-shell .user-content>.panel>.muted{font-size:12px;max-width:780px}
+.remote-shell .user-content>.panel>form{gap:20px 24px;margin-top:22px;padding-top:22px}
+.remote-shell .user-content>.panel>form>label{font-size:13px;gap:9px;color:#d2dbe8}
+.remote-shell .user-workspace form input,.remote-shell .user-workspace form select,.remote-shell .user-workspace form textarea{border-color:#374456;background:#0f151e;min-height:46px}
+.remote-shell .user-content>.panel>form>button[type=submit],.remote-shell .connection-actions button:first-child{background:#f79b51;border-color:#f79b51;color:#20170f;font-weight:600;min-height:44px}
+.remote-shell .user-content>.panel>form>button[type=submit]:hover:not(:disabled),.remote-shell .connection-actions button:first-child:hover:not(:disabled){background:#ffb374;border-color:#ffb374}
+.remote-shell .user-content>.panel>section{background:#f79b5107;border:1px solid #695139;border-radius:12px;padding:22px}
+.remote-shell .user-content>.panel>section h3{color:#ffcfaa}
+.remote-shell .user-content>.panel>section button:first-of-type{background:#f79b51;border-color:#f79b51;color:#20170f}
+.remote-shell .error{background:#361d2580;border:1px solid #77394a;color:#ffc0cb;border-radius:10px;padding:14px 16px;line-height:1.65}
+.remote-shell p[role=status]{background:#15382a80;border:1px solid #2f644c;color:#b8edcd;border-radius:10px;padding:13px 16px}
+.remote-shell .table-wrap{max-width:100%;overflow:auto;border-radius:12px}
+.remote-shell table{font-size:13px}
+.remote-shell th{background:#1a2431;color:#aebed3;font-size:12px;font-weight:600;padding:14px 16px;border-color:#344254}
+.remote-shell td{padding:15px 16px;border-color:#2a3442;line-height:1.6;font-variant-numeric:tabular-nums}
+.remote-shell tbody tr:hover{background:#ffffff035}
+.remote-shell .collection-table{padding:0}
+.remote-shell .stat{background:#151c26;min-height:132px}
+.remote-shell .stat strong{font-variant-numeric:tabular-nums;font-size:30px;letter-spacing:-.6px}
+.remote-shell .dashboard-actions{gap:16px}
+.remote-shell .badge{font-weight:500;border-radius:7px}
+.remote-shell .server-grid .panel{box-shadow:none;border-top:2px solid #3b4a5e}
+.remote-shell .connection-page{max-width:1000px}
+.remote-shell .connection-page>h1{font-size:22px}
+.remote-shell .connection-page .response-panel{background:#101720}
+.remote-shell footer{line-height:1.6;color:#8091a9}
+.server-page-guide{display:flex;gap:18px;align-items:flex-start;justify-content:space-between;margin:0 0 20px;padding:16px 18px;background:#121a24;border:1px solid #293544;border-radius:12px}
+.server-page-guide h2{margin:0 0 6px;font-size:14px}
+.server-page-guide p{margin:0;font-size:12px;color:#a6b3c6;max-width:760px}
+.server-page-guide .guide-label{font-size:10px;letter-spacing:1.8px;color:#f5ad72;white-space:nowrap;padding-top:3px}
+@media(min-width:1500px){.remote-shell>main{padding:36px 44px}}
+@media(max-width:1100px){.remote-shell>aside{width:210px}.remote-shell>main{padding:26px}.remote-shell header{flex-wrap:wrap}}
+@media(max-width:760px){.remote-shell .user-tabs{display:flex;flex-wrap:wrap}.remote-shell .user-tabs>button{flex:1}.remote-shell .user-content>.panel{padding:20px}.remote-shell .user-content>.panel>form{grid-template-columns:minmax(0,1fr)}.server-page-guide{flex-direction:column;gap:10px}}
+@media(max-width:700px){.remote-shell>aside{width:100%;height:auto;padding:16px}.remote-shell .brand{margin-bottom:18px}.remote-shell>main{padding:20px 16px}.remote-shell h1{font-size:26px}.remote-shell .sidebar-note{display:none}.remote-shell .panel{padding:20px}.remote-shell .collection-table{padding:0}.remote-shell .nav{padding:10px;min-height:40px}.remote-shell .dashboard-actions{width:100%;flex-wrap:wrap}.remote-shell td,.remote-shell th{padding:12px 14px}}
+@media(prefers-reduced-motion:reduce){.remote-shell button{transition:none}}
