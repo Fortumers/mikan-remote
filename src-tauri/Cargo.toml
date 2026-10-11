@@ -1,7 +1,7 @@
 [package]
-name = "pumbanet-admin"
+name = "mikan-remote"
 version = "0.1.0"
-description = "PumbaNET Admin desktop dashboard"
+description = "Mikan Remote desktop management client"
 edition = "2021"
 
 [build-dependencies]
